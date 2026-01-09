@@ -358,11 +358,26 @@ Extract design specifications from an existing website you admire, using scraped
 - You need accurate typography and spacing information
 - You want to understand content structure and patterns
 
-### The Prompt
+### Option A: Firecrawl MCP (Recommended)
+
+With Firecrawl MCP configured, just give Claude a URL:
+
+```
+Create a website for "ABC Law Firm" based on https://competitor-lawfirm.com
+```
+
+Claude will automatically scrape, extract, and implement.
+
+**Setup:**
+1. Get API key from [firecrawl.dev](https://firecrawl.dev)
+2. Set environment variable: `export FIRECRAWL_API_KEY=your_key`
+3. MCP server is pre-configured in `.mcp.json`
+
+### Option B: Manual Scraping
 
 Copy the full prompt from: `data/templates/prompts/stage-1b-website-clone.md`
 
-### How to Scrape a Website
+### How to Scrape a Website (Manual)
 
 Use [Firecrawl](https://firecrawl.dev), Puppeteer, or similar tools:
 
@@ -755,6 +770,12 @@ import Image from 'next/image';
 ---
 
 ## Changelog
+
+### v1.2.0
+
+- Added Firecrawl MCP integration for automatic website scraping
+- Claude can now scrape websites directly during conversations
+- Added `.env.example` for API key configuration
 
 ### v1.1.0
 

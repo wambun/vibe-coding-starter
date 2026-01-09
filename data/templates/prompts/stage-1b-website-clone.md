@@ -13,7 +13,42 @@ Use this prompt when you have scraped data from an existing website you want to 
 
 ---
 
-## Step 1: Scrape the Website
+## Option A: MCP Integration (Recommended)
+
+If you have Firecrawl MCP configured, Claude can scrape websites directly during the conversation.
+
+### Setup (One-time)
+
+1. Get your API key from [firecrawl.dev](https://firecrawl.dev)
+2. Set the environment variable:
+   ```bash
+   export FIRECRAWL_API_KEY=your_api_key_here
+   ```
+3. The MCP server is already configured in `.mcp.json`
+
+### Usage
+
+Simply tell Claude the URL and what you want:
+
+```
+Create a website for "Smith & Associates CPA" based on https://example-accounting-firm.com
+
+Use their color scheme and layout as inspiration, but adapt the content for my client.
+```
+
+Claude will automatically:
+1. Scrape the website using Firecrawl MCP
+2. Extract colors, structure, and content patterns
+3. Generate the design brief
+4. Implement the website
+
+---
+
+## Option B: Manual Scraping
+
+If you prefer to scrape manually or don't have Firecrawl MCP configured:
+
+### Step 1: Scrape the Website
 
 Use [Firecrawl](https://firecrawl.dev), [Puppeteer](https://pptr.dev), or similar tools to extract:
 
