@@ -1,0 +1,268 @@
+{
+  // ============================================================================
+  // DESIGN BRIEF SCHEMA v1.0
+  // ============================================================================
+  // This schema defines the structure for design briefs generated from UI
+  // screenshots. AI models should output JSON conforming to this structure.
+  // ============================================================================
+
+  "$schema": "design-brief-schema-v1",
+
+  // ----------------------------------------------------------------------------
+  // META INFORMATION
+  // ----------------------------------------------------------------------------
+  "meta": {
+    // Business type helps select appropriate components and content structure
+    "businessType": "accounting | legal | medical | construction | restaurant | realEstate | saas | ecommerce | agency | general",
+
+    // Overall design style influences color intensity and layout choices
+    "style": "corporate | modern | friendly | minimal | bold | elegant",
+
+    // Target audience description
+    "audience": "Small business owners seeking professional accounting services",
+
+    // Primary goal of the website
+    "primaryGoal": "lead-generation | booking | information | e-commerce | branding"
+  },
+
+  // ----------------------------------------------------------------------------
+  // COLOR PALETTE
+  // ----------------------------------------------------------------------------
+  // Maps to data/config/colors.js
+  // Use Tailwind-compatible hex values
+  "colors": {
+    "primary": {
+      "lighter": "#hex",  // Tailwind primary-100/200
+      "light": "#hex",    // Tailwind primary-300/400
+      "main": "#hex",     // Tailwind primary-500/600 (main brand color)
+      "dark": "#hex",     // Tailwind primary-700/800
+      "darker": "#hex"    // Tailwind primary-900
+    },
+    "secondary": {
+      "lighter": "#hex",
+      "light": "#hex",
+      "main": "#hex",
+      "dark": "#hex",
+      "darker": "#hex"
+    },
+    // One-off accent colors for gradients, special elements, etc.
+    // These should be used sparingly via inline styles or custom classes
+    "accents": [
+      {
+        "name": "highlight",
+        "value": "#hex",
+        "usage": "CTA button gradient endpoint"
+      }
+    ],
+    // Gray scale reference (use Tailwind grays: slate, gray, zinc, neutral, stone)
+    "grayScale": "slate | gray | zinc | neutral | stone"
+  },
+
+  // ----------------------------------------------------------------------------
+  // TYPOGRAPHY
+  // ----------------------------------------------------------------------------
+  "typography": {
+    // Heading style characteristics
+    "headings": {
+      "weight": "bold | semibold | medium",
+      "style": "uppercase | capitalize | normal",
+      "letterSpacing": "tight | normal | wide"
+    },
+    // Body text characteristics
+    "body": {
+      "size": "base | lg",
+      "lineHeight": "normal | relaxed | loose"
+    },
+    // Special text treatments observed
+    "special": [
+      {
+        "element": "hero-title",
+        "treatment": "gradient text from primary to secondary"
+      }
+    ]
+  },
+
+  // ----------------------------------------------------------------------------
+  // SECTIONS
+  // ----------------------------------------------------------------------------
+  // Each section maps to a landing component
+  "sections": [
+    {
+      // Section identifier
+      "id": "hero",
+
+      // Section type (matches component categories)
+      "type": "hero | features | testimonials | pricing | cta | faq | team | stats | about | contact",
+
+      // Recommended component from componentMapping.ts
+      "component": "LandingPrimaryImageCtaSection",
+
+      // Component-specific props
+      "props": {
+        "imagePosition": "right",
+        "imagePerspective": "bottom",
+        "imageShadow": "hard",
+        "textPosition": "left",
+        "withBackground": false,
+        "withBackgroundGlow": true,
+        "variant": "primary",
+        "backgroundGlowVariant": "primary",
+        "minHeight": 400
+      },
+
+      // Content structure (placeholder descriptions)
+      "content": {
+        "title": "Main headline text",
+        "description": "Supporting description text",
+        "ctas": [
+          { "label": "Primary CTA", "style": "primary", "href": "/contact" },
+          { "label": "Secondary CTA", "style": "outline", "href": "/services" }
+        ]
+      },
+
+      // Visual notes from the design
+      "visualNotes": "Hero has a dashboard preview image with perspective transform, floating on a subtle gradient background"
+    },
+    {
+      "id": "features",
+      "type": "features",
+      "component": "LandingFeatureList",
+      "props": {
+        "withBackground": true,
+        "withBackgroundGlow": true,
+        "variant": "primary"
+      },
+      "content": {
+        "title": "Section headline",
+        "description": "Section description",
+        "items": [
+          {
+            "title": "Feature 1",
+            "description": "Feature description",
+            "icon": "lucide-icon-name"
+          }
+        ]
+      },
+      "visualNotes": "6 features in a 3-column grid with circular icon backgrounds"
+    },
+    {
+      "id": "stats",
+      "type": "stats",
+      "component": "LandingStatsSection",
+      "props": {
+        "columnsDesktop": 3,
+        "hasBorders": true,
+        "textPosition": "center"
+      },
+      "content": {
+        "stats": [
+          { "value": "25+", "description": "Years of Experience" },
+          { "value": "500+", "description": "Clients Served" },
+          { "value": "99%", "description": "Client Satisfaction" }
+        ]
+      },
+      "visualNotes": "Stats displayed in bordered cards with large numbers"
+    },
+    {
+      "id": "testimonials",
+      "type": "testimonials",
+      "component": "LandingTestimonialGrid",
+      "props": {
+        "withBackgroundGlow": false
+      },
+      "content": {
+        "title": "What Our Clients Say",
+        "testimonials": [
+          {
+            "name": "Client Name",
+            "text": "Testimonial text",
+            "role": "CEO, Company",
+            "imageSrc": "/path/to/image"
+          }
+        ]
+      },
+      "visualNotes": "Masonry grid with client photos and verification badges"
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "component": "LandingFaqCollapsibleSection",
+      "props": {
+        "variant": "primary"
+      },
+      "content": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Question text?",
+            "answer": "Answer text"
+          }
+        ]
+      },
+      "visualNotes": "Accordion-style FAQ with animated expand/collapse"
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "component": "LandingSaleCtaSection",
+      "props": {
+        "withBackground": true,
+        "withBackgroundGlow": true,
+        "variant": "primary"
+      },
+      "content": {
+        "title": "Ready to get started?",
+        "description": "CTA description",
+        "cta": { "label": "Contact Us", "href": "/contact" }
+      },
+      "visualNotes": "Full-width CTA with gradient background"
+    }
+  ],
+
+  // ----------------------------------------------------------------------------
+  // RESPONSIVE BEHAVIOR
+  // ----------------------------------------------------------------------------
+  "responsive": {
+    // Tailwind breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1400px)
+    "notes": [
+      "Hero image stacks below text on mobile",
+      "Feature grid becomes single column on mobile",
+      "Stats remain visible but stack vertically"
+    ]
+  },
+
+  // ----------------------------------------------------------------------------
+  // DARK MODE SPECIFICATIONS
+  // ----------------------------------------------------------------------------
+  "darkMode": {
+    "background": "Near-black with subtle warmth",
+    "text": "Off-white for body, pure white for headings",
+    "cards": "Slightly lighter than background with subtle border",
+    "primaryAdjustment": "Primary colors remain vibrant, slightly desaturated",
+    "notes": [
+      "Shadows become more subtle in dark mode",
+      "Glow effects become more prominent"
+    ]
+  },
+
+  // ----------------------------------------------------------------------------
+  // SPECIAL EFFECTS & ANIMATIONS
+  // ----------------------------------------------------------------------------
+  "effects": {
+    // CTA background effect component
+    "ctaBackground": "LandingBlobCtaBg | LandingWavesCtaBg | LandingGridPatternCtaBg | none",
+
+    // Image treatments
+    "imageTreatments": [
+      "perspective-bottom transform on hero image",
+      "soft shadow on feature images",
+      "zoom on hover for product features"
+    ],
+
+    // Animations observed
+    "animations": [
+      "fade-in-down on page load",
+      "accordion expand/collapse on FAQ"
+    ]
+  }
+}

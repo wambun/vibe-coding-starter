@@ -1,6 +1,6 @@
 {
-  "name": "Mevolut",
-  "description": "Manage your money the easy way with Mevolut. Track expenses, send money, and grow your savings – safely and simply. Sign up free today!",
+  "name": "agency-website-template",
+  "description": "Professional website template for small-to-medium business clients. Features 85+ landing page components, industry templates, and AI-assisted workflow.",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,9 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "pretty": "prettier --write .",
-    "appinfo": "node ./scripts/generateAppInfo.mjs"
+    "appinfo": "node ./scripts/generateAppInfo.mjs",
+    "new-client": "node ./scripts/new-client.js",
+    "reset": "node ./scripts/reset-template.js"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",

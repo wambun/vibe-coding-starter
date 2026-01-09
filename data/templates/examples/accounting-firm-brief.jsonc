@@ -1,0 +1,348 @@
+{
+  // ============================================================================
+  // SAMPLE BRIEF: Professional Accounting Firm
+  // ============================================================================
+  // This is a complete example brief for an accounting/CPA firm website.
+  // Use this as a reference when generating briefs from design screenshots.
+  // ============================================================================
+
+  "$schema": "design-brief-schema-v1",
+
+  "meta": {
+    "businessType": "accounting",
+    "style": "corporate",
+    "audience": "Small business owners, entrepreneurs, and individuals seeking professional tax and accounting services",
+    "primaryGoal": "lead-generation"
+  },
+
+  "colors": {
+    "primary": {
+      "lighter": "#dbeafe",
+      "light": "#93c5fd",
+      "main": "#3b82f6",
+      "dark": "#1d4ed8",
+      "darker": "#1e3a8a"
+    },
+    "secondary": {
+      "lighter": "#d1fae5",
+      "light": "#6ee7b7",
+      "main": "#10b981",
+      "dark": "#059669",
+      "darker": "#047857"
+    },
+    "accents": [
+      {
+        "name": "gold",
+        "value": "#f59e0b",
+        "usage": "Trust badges, certifications, premium indicators"
+      }
+    ],
+    "grayScale": "slate"
+  },
+
+  "typography": {
+    "headings": {
+      "weight": "semibold",
+      "style": "normal",
+      "letterSpacing": "tight"
+    },
+    "body": {
+      "size": "base",
+      "lineHeight": "relaxed"
+    },
+    "special": []
+  },
+
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "component": "LandingPrimaryImageCtaSection",
+      "props": {
+        "imagePosition": "right",
+        "imagePerspective": "bottom",
+        "imageShadow": "hard",
+        "textPosition": "left",
+        "withBackground": false,
+        "withBackgroundGlow": true,
+        "variant": "primary",
+        "backgroundGlowVariant": "primary",
+        "minHeight": 400
+      },
+      "content": {
+        "title": "Expert Accounting Services for Growing Businesses",
+        "description": "Focus on what you do best. We'll handle the numbers. Professional tax preparation, bookkeeping, and financial consulting tailored to your needs.",
+        "ctas": [
+          { "label": "Schedule Consultation", "style": "primary", "href": "#contact" },
+          { "label": "Our Services", "style": "outline", "href": "#services" }
+        ]
+      },
+      "visualNotes": "Professional office environment or financial dashboard screenshot. Clean, trustworthy imagery."
+    },
+    {
+      "id": "social-proof",
+      "type": "social-proof",
+      "component": "LandingSocialProof",
+      "props": {},
+      "content": {
+        "numberOfUsers": 500,
+        "suffixText": "businesses trust us with their finances"
+      },
+      "visualNotes": "Small avatars of diverse business owners"
+    },
+    {
+      "id": "services",
+      "type": "features",
+      "component": "LandingFeatureList",
+      "props": {
+        "withBackground": true,
+        "withBackgroundGlow": true,
+        "variant": "primary",
+        "backgroundGlowVariant": "primary"
+      },
+      "content": {
+        "title": "Comprehensive Financial Services",
+        "description": "From daily bookkeeping to complex tax planning, we provide the expertise your business needs to thrive.",
+        "items": [
+          {
+            "title": "Tax Preparation & Planning",
+            "description": "Maximize deductions and minimize liability with strategic tax planning for individuals and businesses.",
+            "icon": "Calculator"
+          },
+          {
+            "title": "Bookkeeping Services",
+            "description": "Accurate, timely bookkeeping that keeps your finances organized and audit-ready year-round.",
+            "icon": "BookOpen"
+          },
+          {
+            "title": "Payroll Management",
+            "description": "Hassle-free payroll processing with tax compliance, direct deposits, and detailed reporting.",
+            "icon": "Users"
+          },
+          {
+            "title": "Financial Consulting",
+            "description": "Strategic guidance to help you make informed decisions and achieve your financial goals.",
+            "icon": "TrendingUp"
+          },
+          {
+            "title": "Business Formation",
+            "description": "Expert assistance with entity selection, registration, and compliance for new businesses.",
+            "icon": "Building"
+          },
+          {
+            "title": "Audit Support",
+            "description": "Professional representation and support if you ever face an IRS audit or review.",
+            "icon": "Shield"
+          }
+        ]
+      },
+      "visualNotes": "6 services in 3-column grid, each with a circular icon in primary color"
+    },
+    {
+      "id": "stats",
+      "type": "stats",
+      "component": "LandingStatsSection",
+      "props": {
+        "columnsDesktop": 4,
+        "hasBorders": true,
+        "textPosition": "center",
+        "withBackground": false
+      },
+      "content": {
+        "stats": [
+          { "value": "25+", "description": "Years of Experience" },
+          { "value": "500+", "description": "Clients Served" },
+          { "value": "$50M+", "description": "Tax Savings Found" },
+          { "value": "99%", "description": "Client Retention" }
+        ]
+      },
+      "visualNotes": "Large bold numbers with descriptive labels below"
+    },
+    {
+      "id": "process",
+      "type": "features",
+      "component": "LandingProductSteps",
+      "props": {
+        "display": "grid",
+        "withBackground": false,
+        "variant": "primary"
+      },
+      "content": {
+        "title": "How We Work Together",
+        "description": "A simple, transparent process designed to give you peace of mind.",
+        "steps": [
+          {
+            "title": "1. Free Consultation",
+            "description": "We start with a no-obligation conversation to understand your needs and how we can help.",
+            "image": "consultation-meeting.jpg"
+          },
+          {
+            "title": "2. Custom Plan",
+            "description": "We develop a tailored service plan that fits your business size, industry, and goals.",
+            "image": "planning-document.jpg"
+          },
+          {
+            "title": "3. Ongoing Support",
+            "description": "You'll have a dedicated accountant who knows your business and is always available to help.",
+            "image": "ongoing-support.jpg"
+          }
+        ]
+      },
+      "visualNotes": "Three steps with images showing the consultation process"
+    },
+    {
+      "id": "team",
+      "type": "team",
+      "component": "LandingTeamSection",
+      "props": {
+        "textPosition": "center",
+        "withBackground": true,
+        "variant": "secondary"
+      },
+      "content": {
+        "title": "Meet Your Financial Partners",
+        "description": "Experienced CPAs and financial professionals dedicated to your success.",
+        "members": [
+          {
+            "name": "Sarah Johnson, CPA",
+            "role": "Managing Partner",
+            "imageSrc": "/team/sarah.jpg"
+          },
+          {
+            "name": "Michael Chen, CPA",
+            "role": "Tax Director",
+            "imageSrc": "/team/michael.jpg"
+          },
+          {
+            "name": "Emily Rodriguez",
+            "role": "Senior Accountant",
+            "imageSrc": "/team/emily.jpg"
+          }
+        ]
+      },
+      "visualNotes": "Professional headshots with names and titles"
+    },
+    {
+      "id": "testimonials",
+      "type": "testimonials",
+      "component": "LandingTestimonialGrid",
+      "props": {
+        "withBackgroundGlow": false,
+        "variant": "primary"
+      },
+      "content": {
+        "title": "Trusted by Businesses Like Yours",
+        "description": "See what our clients say about working with us.",
+        "testimonials": [
+          {
+            "name": "David Martinez",
+            "text": "They saved us over $30,000 in taxes last year alone. Best investment we've made in our business.",
+            "role": "Owner, Martinez Construction",
+            "imageSrc": "/testimonials/david.jpg",
+            "verified": true
+          },
+          {
+            "name": "Jennifer Lee",
+            "text": "Finally, an accountant who actually explains things in plain English. I always know where my business stands.",
+            "role": "CEO, TechStart Inc",
+            "imageSrc": "/testimonials/jennifer.jpg",
+            "verified": true
+          },
+          {
+            "name": "Robert Wilson",
+            "text": "They handled my IRS audit flawlessly. Professional, thorough, and always available when I needed them.",
+            "role": "Owner, Wilson's Auto Shop",
+            "imageSrc": "/testimonials/robert.jpg"
+          }
+        ]
+      },
+      "visualNotes": "Client photos with company names and verification badges"
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "component": "LandingFaqCollapsibleSection",
+      "props": {
+        "withBackground": false,
+        "variant": "primary"
+      },
+      "content": {
+        "title": "Frequently Asked Questions",
+        "description": "Get answers to common questions about our services.",
+        "items": [
+          {
+            "question": "How much do your services cost?",
+            "answer": "Our pricing depends on the complexity of your needs. We offer transparent, fixed-fee pricing with no surprises. Schedule a free consultation to get a custom quote."
+          },
+          {
+            "question": "Do you work with businesses of all sizes?",
+            "answer": "Yes! We serve everyone from solo entrepreneurs to established businesses with dozens of employees. Our services scale to match your needs."
+          },
+          {
+            "question": "How do I get started?",
+            "answer": "Simply schedule a free consultation using the form below. We'll discuss your needs and determine how we can best help your business."
+          },
+          {
+            "question": "Are you available year-round or just during tax season?",
+            "answer": "We're here for you 365 days a year. While tax season is busy, we believe great accounting is a year-round partnership."
+          },
+          {
+            "question": "What industries do you specialize in?",
+            "answer": "We have deep experience in construction, healthcare, retail, professional services, and technology. However, we serve clients across all industries."
+          }
+        ]
+      },
+      "visualNotes": "Accordion-style FAQ with smooth animations"
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "component": "LandingSaleCtaSection",
+      "props": {
+        "withBackground": true,
+        "withBackgroundGlow": true,
+        "variant": "primary",
+        "backgroundGlowVariant": "primary"
+      },
+      "content": {
+        "title": "Ready to Take Control of Your Finances?",
+        "description": "Schedule your free consultation today. No obligation, no pressure—just expert advice.",
+        "cta": { "label": "Schedule Free Consultation", "href": "#contact" }
+      },
+      "visualNotes": "Full-width CTA section with gradient background"
+    }
+  ],
+
+  "responsive": {
+    "notes": [
+      "Hero image stacks below text on mobile",
+      "Services grid becomes 2 columns on tablet, 1 column on mobile",
+      "Stats become 2x2 grid on tablet, single column on mobile",
+      "Team members stack in single column on mobile"
+    ]
+  },
+
+  "darkMode": {
+    "background": "Dark slate (slate-900/950)",
+    "text": "Slate-100 for body, white for headings",
+    "cards": "Slate-800 with subtle slate-700 border",
+    "primaryAdjustment": "Blue primary slightly brightened for contrast",
+    "notes": [
+      "Stats numbers remain bold and visible",
+      "Testimonial cards have subtle elevation",
+      "CTA section maintains vibrancy"
+    ]
+  },
+
+  "effects": {
+    "ctaBackground": "LandingBlobCtaBg",
+    "imageTreatments": [
+      "perspective-bottom transform on hero image",
+      "soft shadow on team member photos"
+    ],
+    "animations": [
+      "fade-in-down on hero content",
+      "accordion smooth expand on FAQ"
+    ]
+  }
+}

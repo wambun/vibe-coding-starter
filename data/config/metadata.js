@@ -1,15 +1,28 @@
+/**
+ * Site Metadata Configuration
+ *
+ * Update these values for each new client project.
+ * This is the single source of truth for site-wide metadata.
+ */
 const metadata = {
-  title: 'Mevolut | Simple B2C Fintech for your Money',
+  // Business Information
+  title: 'Professional Services | Your Trusted Partner',
   description:
-    'Manage your money the easy way with Mevolut. Track expenses, send money, and grow your savings – safely and simply. Sign up free today!',
-  domain: 'pageai.pro',
-  logoTitle: '',
-  businessName: 'Mevolut',
-  siteUrl: 'https://pageai.pro',
+    'Expert professional services tailored to your needs. Contact us today for a free consultation.',
+  businessName: 'Your Business Name',
+  author: 'Your Business Name',
+
+  // Domain & URLs
+  domain: 'yourdomain.com',
+  siteUrl: 'https://yourdomain.com',
   siteRepo: '',
   socialBanner: '/api/og',
-  supportEmail: '',
-  email: '',
+
+  // Contact
+  supportEmail: 'support@yourdomain.com',
+  email: 'info@yourdomain.com',
+
+  // Social Media (leave empty if not used)
   twitter: '',
   instagram: '',
   tiktok: '',
@@ -19,9 +32,11 @@ const metadata = {
   facebook: '',
   threads: '',
   mastodon: '',
-  author: 'Mevolut',
+
+  // Display Settings
+  logoTitle: '',
   language: 'en-us',
-  theme: 'light',
+  theme: 'light', // 'light' or 'dark'
   locale: 'en-US',
 };
 
