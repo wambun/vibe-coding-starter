@@ -84,7 +84,8 @@ npm run dev
 │   ├── templates/               # Industry templates
 │   │   ├── accounting/         # CPA/accounting template
 │   │   └── law-office/         # Law firm template
-│   └── [client-name]/          # Client-specific pages
+│   └── client/                  # Client-specific pages
+│       └── [client-name]/      # Each client gets a folder here
 ├── components/
 │   ├── landing/                 # 85+ landing page components
 │   └── shared/                  # Shared UI components
@@ -160,7 +161,7 @@ Phone number (optional): (555) 123-4567
 **Output structure:**
 
 ```
-app/acme-cpa/
+app/client/acme-cpa/
 ├── page.tsx          # Main page (from template)
 └── data.ts           # Content data (updated with client info)
 
@@ -172,8 +173,8 @@ public/static/images/acme-cpa/
 **After running:**
 
 1. Add client images to `/public/static/images/[client-name]/`
-2. Edit content in `/app/[client-name]/data.ts`
-3. Preview at `http://localhost:3000/[client-name]`
+2. Edit content in `/app/client/[client-name]/data.ts`
+3. Preview at `http://localhost:3000/client/[client-name]`
 4. Fine-tune colors in `/data/config/colors.js` if needed
 
 ---
@@ -448,7 +449,7 @@ The AI should:
 ### File Output
 
 ```
-app/[client-name]/
+app/client/[client-name]/
 ├── page.tsx     # Main page component
 └── data.ts      # All content/data
 ```
@@ -465,10 +466,10 @@ Templates provide a starting point for common business types.
 
 ```bash
 # Copy the template
-cp -r app/templates/accounting app/[client-name]
+cp -r app/templates/accounting app/client/[client-name]
 
 # Edit the data file
-# app/[client-name]/data.ts
+# app/client/[client-name]/data.ts
 
 # Update colors
 # data/config/colors.js
@@ -487,7 +488,7 @@ cp -r app/templates/accounting app/[client-name]
 #### Law Office
 
 ```bash
-cp -r app/templates/law-office app/[client-name]
+cp -r app/templates/law-office app/client/[client-name]
 ```
 
 **Included sections:**

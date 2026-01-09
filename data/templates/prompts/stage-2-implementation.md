@@ -21,8 +21,8 @@ This project uses:
 ## File Structure
 
 Create these files:
-1. `/app/[client-name]/page.tsx` - Main page component
-2. `/app/[client-name]/data.ts` - All content/data separated from UI
+1. `/app/client/[client-name]/page.tsx` - Main page component
+2. `/app/client/[client-name]/data.ts` - All content/data separated from UI
 3. Update `/data/config/colors.js` - Brand colors
 
 ## Implementation Rules

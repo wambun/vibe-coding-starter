@@ -262,7 +262,7 @@ async function setupNewClient() {
   const projectRoot = path.resolve(__dirname, '..');
 
   // 1. Create client folder from template
-  const clientPath = path.join(projectRoot, 'app', clientSlug);
+  const clientPath = path.join(projectRoot, 'app', 'client', clientSlug);
 
   if (fs.existsSync(clientPath)) {
     log.warn(`Folder ${clientSlug} already exists, skipping folder creation`);
@@ -422,8 +422,8 @@ module.exports = { metadata };
   log.header('✅ Setup Complete!');
   console.log(`\nNext steps:\n`);
   console.log(`  1. Add client images to: ${colors.cyan}/public/static/images/${clientSlug}/${colors.reset}`);
-  console.log(`  2. Edit content in:      ${colors.cyan}/app/${clientSlug}/data.ts${colors.reset}`);
-  console.log(`  3. Preview at:           ${colors.cyan}http://localhost:3000/${clientSlug}${colors.reset}`);
+  console.log(`  2. Edit content in:      ${colors.cyan}/app/client/${clientSlug}/data.ts${colors.reset}`);
+  console.log(`  3. Preview at:           ${colors.cyan}http://localhost:3000/client/${clientSlug}${colors.reset}`);
   console.log(`  4. Fine-tune colors in:  ${colors.cyan}/data/config/colors.js${colors.reset}`);
   console.log(`\nRun ${colors.cyan}npm run dev${colors.reset} to start the development server.\n`);
 

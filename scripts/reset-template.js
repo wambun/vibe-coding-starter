@@ -247,32 +247,36 @@ async function resetTemplate() {
 
   // Ask about removing client folders
   console.log('');
-  const removeClients = await question('Remove client-specific folders from /app? (y/n): ');
+  const removeClients = await question('Remove client-specific folders from /app/client/? (y/n): ');
 
   if (removeClients.toLowerCase() === 'y') {
-    const appPath = path.join(projectRoot, 'app');
-    const folders = fs.readdirSync(appPath, { withFileTypes: true });
+    const clientPath = path.join(projectRoot, 'app', 'client');
 
-    const clientFolders = folders
-      .filter((f) => f.isDirectory())
-      .filter((f) => !protectedFolders.includes(f.name))
-      .filter((f) => !f.name.startsWith('.'))
-      .map((f) => f.name);
-
-    if (clientFolders.length === 0) {
-      log.info('No client folders found to remove');
+    if (!fs.existsSync(clientPath)) {
+      log.info('No /app/client/ folder found');
     } else {
-      console.log(`\nFound ${clientFolders.length} potential client folder(s):`);
-      clientFolders.forEach((f) => console.log(`  - ${f}`));
+      const folders = fs.readdirSync(clientPath, { withFileTypes: true });
 
-      const confirmRemove = await question('\nRemove these folders? (y/n): ');
+      const clientFolders = folders
+        .filter((f) => f.isDirectory())
+        .filter((f) => !f.name.startsWith('.'))
+        .map((f) => f.name);
 
-      if (confirmRemove.toLowerCase() === 'y') {
-        clientFolders.forEach((folder) => {
-          const folderPath = path.join(appPath, folder);
-          fs.rmSync(folderPath, { recursive: true, force: true });
-          log.success(`Removed /app/${folder}`);
-        });
+      if (clientFolders.length === 0) {
+        log.info('No client folders found to remove');
+      } else {
+        console.log(`\nFound ${clientFolders.length} client folder(s):`);
+        clientFolders.forEach((f) => console.log(`  - ${f}`));
+
+        const confirmRemove = await question('\nRemove these folders? (y/n): ');
+
+        if (confirmRemove.toLowerCase() === 'y') {
+          clientFolders.forEach((folder) => {
+            const folderPath = path.join(clientPath, folder);
+            fs.rmSync(folderPath, { recursive: true, force: true });
+            log.success(`Removed /app/client/${folder}`);
+          });
+        }
       }
     }
   }
