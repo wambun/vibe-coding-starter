@@ -9,14 +9,15 @@ A complete guide to rapidly generating professional websites for small-to-medium
 1. [Overview](#overview)
 2. [Project Setup](#project-setup)
 3. [CLI Scripts](#cli-scripts)
-4. [The Two-Stage Workflow](#the-two-stage-workflow)
-5. [Stage 1: Design Extraction](#stage-1-design-extraction)
-6. [Stage 2: Implementation](#stage-2-implementation)
-7. [Industry Templates](#industry-templates)
-8. [Component Reference](#component-reference)
-9. [Color System](#color-system)
-10. [Client Handoff](#client-handoff)
-11. [Troubleshooting](#troubleshooting)
+4. [The Workflow](#the-workflow)
+5. [Stage 1: Design Extraction (Screenshot)](#stage-1-design-extraction)
+6. [Stage 1B: Website Clone (Firecrawl)](#stage-1b-website-clone)
+7. [Stage 2: Implementation](#stage-2-implementation)
+8. [Industry Templates](#industry-templates)
+9. [Component Reference](#component-reference)
+10. [Color System](#color-system)
+11. [Client Handoff](#client-handoff)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -233,29 +234,44 @@ npm run new-client      # Set up new project
 
 ---
 
-## The Two-Stage Workflow
+## The Workflow
 
 ### Overview
 
+You have **two paths** to generate a design brief, both leading to the same Stage 2 implementation:
+
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│                 │     │                 │     │                 │
-│  Find Design    │────▶│  Stage 1: AI    │────▶│  Stage 2: AI    │
-│  Inspiration    │     │  Extraction     │     │  Implementation │
-│                 │     │                 │     │                 │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-         │                      │                       │
-         ▼                      ▼                       ▼
-   Screenshot from        JSONC Design Brief      Working Website
-   Dribbble/Mobbin       + Dev Instructions       Ready to Deploy
+                                    ┌─────────────────────┐
+                                    │                     │
+                              ┌────▶│  Stage 1: Screenshot│────┐
+                              │     │  (Dribbble/Mobbin)  │    │
+┌─────────────────┐           │     │                     │    │     ┌─────────────────┐
+│                 │           │     └─────────────────────┘    │     │                 │
+│  Find Design    │───────────┤                                ├────▶│  Stage 2: AI    │
+│  Inspiration    │           │     ┌─────────────────────┐    │     │  Implementation │
+│                 │           │     │                     │    │     │                 │
+└─────────────────┘           └────▶│  Stage 1B: Firecrawl│────┘     └─────────────────┘
+                                    │  (Real Website)     │                   │
+                                    │                     │                   ▼
+                                    └─────────────────────┘           Working Website
+                                                                      Ready to Deploy
 ```
+
+### Choose Your Path
+
+| Path | Input | Best For |
+|------|-------|----------|
+| **Stage 1** | Screenshot from Dribbble/Mobbin | Design mockups, visual inspiration |
+| **Stage 1B** | Scraped HTML/CSS from real website | Competitor sites, exact styling |
+
+Both paths output a **JSONC Design Brief** that feeds into Stage 2.
 
 ### Time Estimates
 
 | Step | Time |
 |------|------|
 | Find inspiration | 10-30 min |
-| Stage 1 extraction | 5-10 min |
+| Stage 1 OR 1B extraction | 5-10 min |
 | Stage 2 implementation | 20-45 min |
 | Review & adjustments | 15-30 min |
 | **Total** | **50-115 min** |
@@ -326,6 +342,64 @@ The AI should return:
   ]
 }
 ```
+
+---
+
+## Stage 1B: Website Clone
+
+### Purpose
+
+Extract design specifications from an existing website you admire, using scraped HTML/CSS data for more accurate color and structure information.
+
+### When to Use Stage 1B
+
+- You found a real website (competitor, inspiration) you want to emulate
+- You want **exact** color values instead of AI-guessed colors from screenshots
+- You need accurate typography and spacing information
+- You want to understand content structure and patterns
+
+### The Prompt
+
+Copy the full prompt from: `data/templates/prompts/stage-1b-website-clone.md`
+
+### How to Scrape a Website
+
+Use [Firecrawl](https://firecrawl.dev), Puppeteer, or similar tools:
+
+```bash
+# Using Firecrawl CLI
+firecrawl scrape https://example-law-firm.com --format markdown,html
+
+# Or using the API
+curl -X POST https://api.firecrawl.dev/v1/scrape \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{"url": "https://example-law-firm.com", "formats": ["markdown", "html"]}'
+```
+
+### What to Provide
+
+1. **Source URL** - The website you're referencing
+2. **HTML structure** - Main page HTML (trim scripts/tracking)
+3. **Colors found** - CSS custom properties or extracted hex values
+4. **Content/Markdown** - Text content for reference
+5. **Notes** - What to keep, adapt, or change for your client
+
+### Expected Output
+
+Same as Stage 1:
+1. **JSONC Design Brief** with `sourceUrl` in meta section
+2. **Developer Implementation Prompt** for Stage 2
+
+### Stage 1 vs Stage 1B Comparison
+
+| Aspect | Stage 1 (Screenshot) | Stage 1B (Firecrawl) |
+|--------|---------------------|----------------------|
+| Input | UI screenshot | HTML + CSS + content |
+| Color accuracy | AI-estimated | Exact values |
+| Content | Manually described | Actual copy available |
+| Structure | Visually inferred | DOM structure |
+| Speed | Quick | Slightly more setup |
+| Best for | Dribbble/Behance inspiration | Real competitor sites |
 
 ---
 
@@ -681,6 +755,12 @@ import Image from 'next/image';
 ---
 
 ## Changelog
+
+### v1.1.0
+
+- Added Stage 1B: Website Clone workflow using Firecrawl
+- Updated workflow diagram to show both extraction paths
+- Added `stage-1b-website-clone.md` prompt template
 
 ### v1.0.0 (Initial Release)
 
