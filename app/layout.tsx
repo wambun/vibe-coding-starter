@@ -1,4 +1,4 @@
-import { Nunito_Sans } from 'next/font/google';
+import { Inter, DM_Sans } from 'next/font/google';
 import { siteConfig } from '@/data/config/site.settings';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
@@ -8,17 +8,22 @@ import { colors } from '@/data/config/colors.js';
 import '@/css/globals.css';
 import { SearchProvider } from '@/components/shared/SearchProvider';
 import { AnalyticsWrapper } from '@/components/shared/Analytics';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { SiteFooter } from '@/components/layout/SiteFooter';
 
-const displayFont = Nunito_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-display',
-});
-
-const baseFont = Nunito_Sans({
+// Using Inter for body text - clean, modern, highly readable
+const baseFont = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-space-default',
+});
+
+// Using DM Sans for display/headings - geometric, modern like Accruefy
+const displayFont = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space-display',
 });
 
 const globalColors = colors;
@@ -112,34 +117,37 @@ export default function RootLayout({
         <link
           rel="mask-icon"
           href="/static/favicons/safari-pinned-tab.svg"
-          color="#5bbad5"
+          color="#0d7377"
         />
-        <meta name="generator" content="Shipixen" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#0d7377" />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
-          content="#fff"
+          content="#F5F3EF"
         />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: dark)"
-          content="#000"
+          content="#1a1a1a"
         />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
 
-      <body className="flex flex-col bg-white text-black antialiased dark:bg-gray-950 dark:text-white min-h-screen">
+      <body className="flex flex-col bg-[#F5F3EF] text-gray-900 antialiased min-h-screen">
         <ThemeProviders>
           <AnalyticsWrapper />
 
-          <div className="w-full flex flex-col justify-between items-center font-sans">
+          <SiteHeader />
+
+          <div className="w-full flex flex-col justify-between items-center font-sans flex-1">
             <SearchProvider>
-              <main className="w-full flex flex-col items-center mb-auto">
+              <main className="w-full flex flex-col items-center">
                 {children}
               </main>
             </SearchProvider>
           </div>
+
+          <SiteFooter />
         </ThemeProviders>
       </body>
     </html>

@@ -4,11 +4,16 @@
 
 @layer base {
   :root {
+    /* Site Design Colors - Warm Neutrals (Accruefy style) */
+    --site-bg: 40 23% 95%;
+    --site-bg-alt: 40 20% 97%;
+    --site-card: 0 0% 100%;
+
     --hard-shadow: 0px 29px 52px 0px rgba(0, 0, 0, 0.4),
       22px 25px 16px 0px rgba(0, 0, 0, 0.2);
     --hard-shadow-left: 0px 29px 52px 0px rgba(0, 0, 0, 0.4),
       -22px 25px 16px 0px rgba(0, 0, 0, 0.2);
-    --background: 0 0% 100%;
+    --background: 40 23% 95%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
