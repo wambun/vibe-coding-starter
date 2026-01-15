@@ -29,8 +29,8 @@ module.exports = {
       },
       colors: {
         primary: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
+          50: '#eff6ff', // Blue-50
+          100: '#dbeafe', // Blue-100
           200: customColors.primary.lighter,
           300: customColors.primary.lighter,
           400: customColors.primary.light,
@@ -41,8 +41,8 @@ module.exports = {
           900: customColors.primary.darker,
         },
         secondary: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
+          50: '#f0f9ff', // Sky-50
+          100: '#e0f2fe', // Sky-100
           200: customColors.secondary.lighter,
           300: customColors.secondary.lighter,
           400: customColors.secondary.light,
@@ -53,14 +53,14 @@ module.exports = {
           900: customColors.secondary.darker,
         },
         accent: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: customColors.accent?.lighter || '#fcd34d',
-          300: customColors.accent?.light || '#fbbf24',
-          400: customColors.accent?.main || '#f59e0b',
-          500: customColors.accent?.main || '#f59e0b',
-          600: customColors.accent?.dark || '#d97706',
-          700: customColors.accent?.darker || '#b45309',
+          50: '#ecfeff', // Cyan-50
+          100: '#cffafe', // Cyan-100
+          200: customColors.accent?.lighter || '#a5f3fc',
+          300: customColors.accent?.light || '#67e8f9',
+          400: customColors.accent?.main || '#22d3ee',
+          500: customColors.accent?.main || '#22d3ee',
+          600: customColors.accent?.dark || '#06b6d4',
+          700: customColors.accent?.darker || '#0891b2',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, ChevronDown, Phone, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -33,18 +34,15 @@ export function SiteHeader() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl shadow-lg shadow-primary-500/20">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-lg font-bold text-gray-900 font-display">
-                Fry & Associates
-              </div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider">
-                CPAs, Inc.
-              </div>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo-full.avif"
+              alt="Fry & Associates, CPAs, Inc."
+              width={280}
+              height={45}
+              className="h-10 sm:h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
