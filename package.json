@@ -1,6 +1,6 @@
 {
-  "name": "Mevolut",
-  "description": "Manage your money the easy way with Mevolut. Track expenses, send money, and grow your savings – safely and simply. Sign up free today!",
+  "name": "your-app",
+  "description": "Your app description",
   "version": "1.0.0",
   "private": true,
   "scripts": {
